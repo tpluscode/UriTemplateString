@@ -1,0 +1,12 @@
+source https://www.nuget.org/api/v2/
+framework >= net40
+content: none
+redirects: on
+copy_local: true
+
+nuget Fody
+nuget NullGuard.Fody
+nuget xunit
+nuget GitVersionTask
+
+gist tpluscode/a285267d2543466fc35c3a168c846f9f 

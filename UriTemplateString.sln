@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UriTemplateString", "src\UriTemplateString\UriTemplateString.csproj", "{2A9FAC1E-F7E3-47FB-8D3B-79A0FC48FE7C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{3DEDC8F9-8D75-4FEE-9433-4FC8D0E6CEBD}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+		paket.lock = paket.lock
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UriTemplateString.Tests", "test\UriTemplateString.Tests\UriTemplateString.Tests.csproj", "{ADB35456-3869-4B39-A455-8BEAC2F41342}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A9FAC1E-F7E3-47FB-8D3B-79A0FC48FE7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A9FAC1E-F7E3-47FB-8D3B-79A0FC48FE7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A9FAC1E-F7E3-47FB-8D3B-79A0FC48FE7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A9FAC1E-F7E3-47FB-8D3B-79A0FC48FE7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADB35456-3869-4B39-A455-8BEAC2F41342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADB35456-3869-4B39-A455-8BEAC2F41342}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADB35456-3869-4B39-A455-8BEAC2F41342}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADB35456-3869-4B39-A455-8BEAC2F41342}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

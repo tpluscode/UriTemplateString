@@ -9,20 +9,7 @@ Parses [URI Templates](https://tools.ietf.org/html/rfc6570) into a friendly obje
 Simply cast a string to `UriTemplateString`.
 
 ``` c#
-public class PeopleModule : Nancy.Routing.UriTemplates.UriTemplateModule
-{
-    public PeopleModule()
-    {
-        // by default you'll be creating typical routes
-        Get("person/{id}", p => GetModel(p.id));
-            
-        // and URI Templates are opt-in
-        using(Templates)
-        {
-            Get("people{;include}{/page}{?name}", p => GetPeople(p.include, p.page, p.name));
-        }
-    }
-}
+var template = (UriTemplateString)"/base/users{/page}{?name}";
 ```
 
 [The stencil print icon](https://thenounproject.com/term/stencil-print/690990) by [Dairy Free Design](https://thenounproject.com/emmaihall/) from [The Noun Project](http://thenounproject.com/)

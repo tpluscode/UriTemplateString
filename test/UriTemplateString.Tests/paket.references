@@ -1,1 +1,4 @@
 Xunit
+FluentAssertions
+Stylecop.Analyzers
+GitVersionTask

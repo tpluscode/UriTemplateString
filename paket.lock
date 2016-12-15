@@ -4,10 +4,12 @@ CONTENT: NONE
 FRAMEWORK: >= NET40
 NUGET
   remote: https://www.nuget.org/api/v2
+    FluentAssertions (4.18)
     Fody (1.29.4)
     GitVersionTask (3.6.5)
     NullGuard.Fody (1.4.6)
       Fody (>= 1.29.2)
+    StyleCop.Analyzers (1.0)
     xunit (2.1)
       xunit.assert (2.1)
       xunit.core (2.1)

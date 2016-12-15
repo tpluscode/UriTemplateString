@@ -1,4 +1,4 @@
-![trail icon](https://raw.githubusercontent.com/tpluscode/Nancy.Routing.UriTemplates/master/assets/noun_27516.png)
+![trail icon](https://raw.githubusercontent.com/tpluscode/UriTemplateString/master/assets/noun_690990.png)
 
 # UriTemplateString [![Build status][av-badge]][build] [![NuGet version][nuget-badge]][nuget-link] [![codecov.io][cov-badge]][cov-link]
 

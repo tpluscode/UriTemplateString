@@ -1,0 +1,35 @@
+install:
+  - choco install gitversion.portable -pre -y
+  
+before_build:  
+  - .paket\paket.bootstrapper.exe prerelease
+  - .paket\paket.exe restore
+  - ps: gitversion /l console /output buildserver
+
+build:
+  project: UriTemplateString.sln
+
+configuration: Release
+
+after_build:
+  - .paket\paket.exe pack output nugets include-referenced-projects version %GitVersion_NuGetVersion%
+  
+after_test:
+  - .\packages\OpenCover\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:"test\UriTemplateString.Tests\bin\Release\UriTemplateString.Tests.dll -noshadow -appveyor" -returntargetcode -filter:"+[UriTemplateString*]* -[UriTemplateString.Tests*]* -[Test*]*" -hideskipped:All -output:.\UriTemplateString_coverage.xml
+  - "SET PATH=C:\\Python34;C:\\Python34\\Scripts;%PATH%"
+  - pip install codecov
+  - codecov -f "UriTemplateString_coverage.xml"
+
+artifacts:
+  - path: 'nugets\*.nupkg'
+  - path: UriTemplateString_coverage.xml
+
+cache:
+  - packages -> paket.lock
+  
+deploy:
+  - provider: Environment
+    name: NuGet
+    on:
+      branch: /v\d\.\d(\.\d)?/
+      appveyor_repo_tag: true

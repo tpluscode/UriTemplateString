@@ -10,5 +10,7 @@ nuget xunit
 nuget GitVersionTask
 nuget FluentAssertions
 nuget Stylecop.Analyzers
+nuget GitLink
+nuget OpenCover
 
 gist tpluscode/a285267d2543466fc35c3a168c846f9f 

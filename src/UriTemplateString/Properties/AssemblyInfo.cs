@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Work programmatically with URI Templates")]
 [assembly: AssemblyProduct("UriTemplateString")]
 [assembly: AssemblyCopyright("Copyright © Tomasz Pluskiewicz 2016")]
+[assembly: AssemblyCompany("Tomasz Pluskiewicz")]
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM

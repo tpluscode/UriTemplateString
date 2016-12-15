@@ -1,0 +1,15 @@
+type project
+id UriTemplateString
+include-pdbs true
+excludeddependencies
+  GitVersionTask
+iconUrl
+  https://raw.githubusercontent.com/tpluscode/UriTemplateString/master/assets/noun_690990.png
+tags
+  uri templates rfc6570
+copyright 
+  Copyright 2016 Tomasz Pluskiewicz
+licenseUrl
+  http://www.opensource.org/licenses/mit-license.php
+projectUrl
+  http://github.org/tpluscode/UriTemplateString

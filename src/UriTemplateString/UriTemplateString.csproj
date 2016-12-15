@@ -61,6 +61,7 @@
     <Compile Include="UriTemplateString.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="paket.template" />
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>

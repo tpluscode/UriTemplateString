@@ -1,6 +1,6 @@
 ![trail icon](https://raw.githubusercontent.com/tpluscode/UriTemplateString/master/assets/noun_690990.png)
 
-# UriTemplateString [![Build status][av-badge]][build] [![NuGet version][nuget-badge]][nuget-link] [![codecov.io][cov-badge]][cov-link]
+# UriTemplateString [![Build status][av-badge]][build] [![NuGet version][nuget-badge]][nuget-link] [![codecov.io][cov-badge]][cov-link] [![codefactor][codefactor-badge]][codefactor-link]
 
 Parses [URI Templates](https://tools.ietf.org/html/rfc6570) into a friendly object structure. 
 
@@ -20,3 +20,5 @@ var template = (UriTemplateString)"/base/users{/page}{?name}";
 [nuget-link]: https://badge.fury.io/nu/UriTemplateString
 [cov-badge]: https://codecov.io/github/tpluscode/UriTemplateString/coverage.svg?branch=master
 [cov-link]: https://codecov.io/github/tpluscode/UriTemplateString?branch=master
+[codefactor-badge]: https://www.codefactor.io/repository/github/tpluscode/UriTemplateString/badge/master
+[codefactor-link]: https://www.codefactor.io/repository/github/tpluscode/UriTemplateString/overview/master

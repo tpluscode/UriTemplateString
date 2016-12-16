@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UriTemplateString.Spec;
 
@@ -11,13 +12,18 @@ namespace UriTemplateString
     {
         private static readonly UriTemplatePartFactory URITemplatePartFactory = new UriTemplatePartFactory();
 
-        private UriTemplateString(string value)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UriTemplateString"/> class.
+        /// </summary>
+        /// <param name="value">The template string.</param>
+        public UriTemplateString(string value)
+            : this(GetTemplateParts(value))
         {
-            var match = TemplateSyntax.TemplateRegex.Match(value);
-            if (match.Success)
-            {
-                this.Parts = URITemplatePartFactory.GetParts(match.Groups["part"].Captures).ToList();
-            }
+        }
+
+        private UriTemplateString(IEnumerable<ITemplatePart> templateParts)
+        {
+            this.Parts = templateParts.ToList();
         }
 
         /// <summary>
@@ -46,6 +52,57 @@ namespace UriTemplateString
         public override string ToString()
         {
             return string.Join(string.Empty, this.Parts);
+        }
+
+        /// <summary>
+        /// Appends a query parameter variable to query string.
+        /// </summary>
+        /// <param name="name">The variable name.</param>
+        /// <param name="explode">if set to <c>true</c> adds an exploded variable.</param>
+        /// <returns>A new instance of <see cref="UriTemplateString"/> with appended query string parameter</returns>
+        public UriTemplateString AppendQueryParam(string name, bool explode = false)
+        {
+            IEnumerable<ITemplatePart> newParts;
+            var queryVariable = explode ? new VariableSpec(name, default(Explode)) : new VariableSpec(name);
+
+            var lastExpression = this.Parts.Last() as ExpressionPart?;
+            if (lastExpression?.Operator == "?" || lastExpression?.Operator == "&")
+            {
+                ITemplatePart newQuery = new ExpressionPart(lastExpression?.Operator, lastExpression?.VariableList.Concat(new[] { queryVariable }));
+
+                newParts = this.Parts
+                    .Take(this.Parts.Count - 1)
+                    .Concat(new[] { newQuery });
+            }
+            else if (this.Parts.OfType<LiteralPart>().Any(p => p.ToString().Contains("?")))
+            {
+                ITemplatePart queryContinuation = new ExpressionPart("&", new[] { queryVariable });
+                newParts = this.Parts.Concat(new[] { queryContinuation });
+
+                return new UriTemplateString(newParts);
+            }
+            else
+            {
+                var queryExpression = new ExpressionPart("?", new[] { queryVariable });
+
+                newParts = this.Parts.Concat(new ITemplatePart[]
+                {
+                    queryExpression
+                });
+            }
+
+            return new UriTemplateString(newParts);
+        }
+
+        private static IEnumerable<ITemplatePart> GetTemplateParts(string value)
+        {
+            var match = TemplateSyntax.TemplateRegex.Match(value);
+            if (match.Success)
+            {
+                return URITemplatePartFactory.GetParts(match.Groups["part"].Captures);
+            }
+
+            throw new ArgumentException("Value is not a valid URI Template");
         }
     }
 }

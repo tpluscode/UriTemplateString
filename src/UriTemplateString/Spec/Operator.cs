@@ -58,6 +58,11 @@ namespace UriTemplateString.Spec
         /// </exception>
         public static Operator FromString(string operatorCharacter)
         {
+            if (operatorCharacter.Length == 0)
+            {
+                return default(Operator);
+            }
+
             switch (operatorCharacter)
             {
                 case "?":
@@ -84,6 +89,11 @@ namespace UriTemplateString.Spec
         /// </summary>
         public override string ToString()
         {
+            if (this.value == default(char))
+            {
+                return string.Empty;
+            }
+
             return this.value.ToString();
         }
     }

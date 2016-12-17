@@ -14,7 +14,7 @@ namespace UriTemplateString.Spec
         /// </summary>
         /// <param name="operator">The operator.</param>
         /// <param name="variableList">The variable list.</param>
-        internal Expression(string @operator, IEnumerable<VariableSpec> variableList)
+        internal Expression(Operator @operator, IEnumerable<VariableSpec> variableList)
         {
             this.Operator = @operator;
             this.VariableList = variableList.ToList();
@@ -23,7 +23,7 @@ namespace UriTemplateString.Spec
         /// <summary>
         /// Gets the operator.
         /// </summary>
-        public string Operator { get; }
+        public Operator Operator { get; }
 
         /// <summary>
         /// Gets the variable list.

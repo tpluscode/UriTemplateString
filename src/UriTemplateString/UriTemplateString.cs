@@ -66,9 +66,9 @@ namespace UriTemplateString
             var queryVariable = explode ? new VariableSpec(name, default(Explode)) : new VariableSpec(name);
 
             var lastExpression = this.Parts.Last() as Expression?;
-            if (lastExpression?.Operator == "?" || lastExpression?.Operator == "&")
+            if (Operator.QueryComponent.Equals(lastExpression?.Operator) || Operator.QueryContinuation.Equals(lastExpression?.Operator))
             {
-                ITemplatePart newQuery = new Expression(lastExpression?.Operator, lastExpression?.VariableList.Concat(new[] { queryVariable }));
+                ITemplatePart newQuery = new Expression(lastExpression.Value.Operator, lastExpression?.VariableList.Concat(new[] { queryVariable }));
 
                 newParts = this.Parts
                     .Take(this.Parts.Count - 1)
@@ -76,14 +76,14 @@ namespace UriTemplateString
             }
             else if (this.Parts.OfType<Literal>().Any(p => p.ToString().Contains("?")))
             {
-                ITemplatePart queryContinuation = new Expression("&", new[] { queryVariable });
+                ITemplatePart queryContinuation = new Expression(Operator.QueryContinuation, new[] { queryVariable });
                 newParts = this.Parts.Concat(new[] { queryContinuation });
 
                 return new UriTemplateString(newParts);
             }
             else
             {
-                var queryExpression = new Expression("?", new[] { queryVariable });
+                var queryExpression = new Expression(Operator.QueryComponent, new[] { queryVariable });
 
                 newParts = this.Parts.Concat(new ITemplatePart[]
                 {

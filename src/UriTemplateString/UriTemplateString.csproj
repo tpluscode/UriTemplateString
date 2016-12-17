@@ -55,6 +55,7 @@
     <Compile Include="Spec\ITemplatePart.cs" />
     <Compile Include="Spec\Literal.cs" />
     <Compile Include="Spec\MaxLength.cs" />
+    <Compile Include="Spec\Operator.cs" />
     <Compile Include="Spec\TemplateSyntax.cs" />
     <Compile Include="Spec\VariableSpec.cs" />
     <Compile Include="UriTemplatePartFactory.cs" />

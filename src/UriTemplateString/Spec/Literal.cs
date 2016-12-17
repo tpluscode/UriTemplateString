@@ -1,18 +1,18 @@
 ﻿namespace UriTemplateString.Spec
 {
     /// <summary>
-    /// Represents a literl part of an URI Template
+    /// Represents a literal part of an URI Template
     /// </summary>
     /// <seealso cref="ITemplatePart" />
-    public struct LiteralPart : ITemplatePart
+    public struct Literal : ITemplatePart
     {
         private readonly string literal;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LiteralPart"/> struct.
+        /// Initializes a new instance of the <see cref="Literal"/> struct.
         /// </summary>
         /// <param name="literal">The literal value.</param>
-        internal LiteralPart(string literal)
+        internal Literal(string literal)
         {
             this.literal = literal;
         }

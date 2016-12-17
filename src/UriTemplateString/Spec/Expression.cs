@@ -7,14 +7,14 @@ namespace UriTemplateString.Spec
     /// Represents an expression part of an URI Template
     /// </summary>
     /// <seealso cref="ITemplatePart" />
-    public struct ExpressionPart : ITemplatePart
+    public struct Expression : ITemplatePart
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExpressionPart"/> struct.
+        /// Initializes a new instance of the <see cref="Expression"/> struct.
         /// </summary>
         /// <param name="operator">The operator.</param>
         /// <param name="variableList">The variable list.</param>
-        internal ExpressionPart(string @operator, IEnumerable<VariableSpec> variableList)
+        internal Expression(string @operator, IEnumerable<VariableSpec> variableList)
         {
             this.Operator = @operator;
             this.VariableList = variableList.ToList();

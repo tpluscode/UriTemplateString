@@ -4,13 +4,13 @@
     /// Represents the max-length variable modifier
     /// </summary>
     /// <seealso cref="IModifier" />
-    internal struct MaxLength : IModifier
+    public struct MaxLength : IModifier
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MaxLength"/> struct.
         /// </summary>
         /// <param name="maxLength">The maximum length.</param>
-        public MaxLength(int maxLength)
+        internal MaxLength(int maxLength)
         {
             this.Value = maxLength;
         }

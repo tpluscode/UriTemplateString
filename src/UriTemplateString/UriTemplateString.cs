@@ -65,25 +65,25 @@ namespace UriTemplateString
             IEnumerable<ITemplatePart> newParts;
             var queryVariable = explode ? new VariableSpec(name, default(Explode)) : new VariableSpec(name);
 
-            var lastExpression = this.Parts.Last() as ExpressionPart?;
+            var lastExpression = this.Parts.Last() as Expression?;
             if (lastExpression?.Operator == "?" || lastExpression?.Operator == "&")
             {
-                ITemplatePart newQuery = new ExpressionPart(lastExpression?.Operator, lastExpression?.VariableList.Concat(new[] { queryVariable }));
+                ITemplatePart newQuery = new Expression(lastExpression?.Operator, lastExpression?.VariableList.Concat(new[] { queryVariable }));
 
                 newParts = this.Parts
                     .Take(this.Parts.Count - 1)
                     .Concat(new[] { newQuery });
             }
-            else if (this.Parts.OfType<LiteralPart>().Any(p => p.ToString().Contains("?")))
+            else if (this.Parts.OfType<Literal>().Any(p => p.ToString().Contains("?")))
             {
-                ITemplatePart queryContinuation = new ExpressionPart("&", new[] { queryVariable });
+                ITemplatePart queryContinuation = new Expression("&", new[] { queryVariable });
                 newParts = this.Parts.Concat(new[] { queryContinuation });
 
                 return new UriTemplateString(newParts);
             }
             else
             {
-                var queryExpression = new ExpressionPart("?", new[] { queryVariable });
+                var queryExpression = new Expression("?", new[] { queryVariable });
 
                 newParts = this.Parts.Concat(new ITemplatePart[]
                 {

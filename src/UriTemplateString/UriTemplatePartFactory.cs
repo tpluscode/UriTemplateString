@@ -33,11 +33,11 @@ namespace UriTemplateString
                 var variables = from Match varspec in TemplateSyntax.VariableSpecRegex.Matches(templatePart)
                                 select this.CreateVariable(varspec);
 
-                return new ExpressionPart(@operator, variables);
+                return new Expression(@operator, variables);
             }
             else
             {
-                return new LiteralPart(templatePart);
+                return new Literal(templatePart);
             }
         }
 

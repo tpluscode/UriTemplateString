@@ -4,7 +4,7 @@
     /// Represents the explode expression modifier
     /// </summary>
     /// <seealso cref="IModifier" />
-    internal struct Explode : IModifier
+    public struct Explode : IModifier
     {
         /// <summary>
         /// Returns a <see cref="string" /> that represents this instance.

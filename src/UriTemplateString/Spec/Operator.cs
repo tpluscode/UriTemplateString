@@ -7,47 +7,47 @@ namespace UriTemplateString.Spec
     /// </summary>
     public struct Operator
     {
+        /// <summary>
+        /// Gets the query continuation operator.
+        /// </summary>
+        public static readonly Operator QueryContinuation = new Operator('&');
+
+        /// <summary>
+        /// Gets the path parameter operator.
+        /// </summary>
+        public static readonly Operator PathParameter = new Operator(';');
+
+        /// <summary>
+        /// Gets the path segment operator.
+        /// </summary>
+        public static readonly Operator PathSegment = new Operator('/');
+
+        /// <summary>
+        /// Gets the dot prefix operator
+        /// </summary>
+        public static readonly Operator DotPrefixedName = new Operator('.');
+
+        /// <summary>
+        /// Gets the hash fragment operator.
+        /// </summary>
+        public static readonly Operator HashFragment = new Operator('#');
+
+        /// <summary>
+        /// Gets the reserved character string operator.
+        /// </summary>
+        public static readonly Operator ReservedCharacterString = new Operator('+');
+
+        /// <summary>
+        /// Gets the query string operator.
+        /// </summary>
+        public static readonly Operator QueryComponent = new Operator('?');
+
         private readonly char value;
 
         private Operator(char value)
         {
             this.value = value;
         }
-
-        /// <summary>
-        /// Gets the query continuation operator.
-        /// </summary>
-        public static Operator QueryContinuation { get; } = new Operator('&');
-
-        /// <summary>
-        /// Gets the path parameter operator.
-        /// </summary>
-        public static Operator PathParameter { get; } = new Operator(';');
-
-        /// <summary>
-        /// Gets the path segment operator.
-        /// </summary>
-        public static Operator PathSegment { get; } = new Operator('/');
-
-        /// <summary>
-        /// Gets the dot prefix operator
-        /// </summary>
-        public static Operator DotPrefixedName { get; } = new Operator('.');
-
-        /// <summary>
-        /// Gets the hash fragment operator.
-        /// </summary>
-        public static Operator HashFragment { get; } = new Operator('#');
-
-        /// <summary>
-        /// Gets the reserved character string operator.
-        /// </summary>
-        public static Operator ReservedCharacterString { get; } = new Operator('+');
-
-        /// <summary>
-        /// Gets the query string operator.
-        /// </summary>
-        public static Operator QueryComponent { get; } = new Operator('?');
 
         /// <summary>
         /// Creates an oeprator from the string representation

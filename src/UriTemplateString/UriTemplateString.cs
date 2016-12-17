@@ -44,6 +44,14 @@ namespace UriTemplateString
         }
 
         /// <summary>
+        /// Concatenates two templates
+        /// </summary>
+        public static UriTemplateString operator +(UriTemplateString path, UriTemplateString template)
+        {
+            return new UriTemplateString(path.Parts.Concat(template.Parts));
+        }
+
+        /// <summary>
         /// Returns the URI Template string as concatentation of its <see cref="Parts"/>.
         /// </summary>
         /// <returns>

@@ -46,5 +46,31 @@ namespace UriTemplateString.Tests
             // then
             concat.ToString().Should().Be("http://example.com/{area}/{controller}{/action}");
         }
+
+        [Fact]
+        public void Concatenating_empty_string_with_template_Should_not_change_it()
+        {
+            // given
+            var template = new UriTemplateString("{controller}{/action}");
+
+            // when
+            var concatenated = string.Empty + template;
+
+            // then
+            concatenated.Should().Be(template);
+        }
+
+        [Fact]
+        public void Concatenating_template_empty_string_with_Should_not_change_it()
+        {
+            // given
+            var template = new UriTemplateString("{controller}{/action}");
+
+            // when
+            var concatenated = template + string.Empty;
+
+            // then
+            concatenated.Should().Be(template);
+        }
     }
 }

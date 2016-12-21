@@ -46,9 +46,35 @@ namespace UriTemplateString
         /// <summary>
         /// Concatenates two templates
         /// </summary>
-        public static UriTemplateString operator +(UriTemplateString path, UriTemplateString template)
+        public static UriTemplateString operator +(UriTemplateString left, UriTemplateString right)
         {
-            return new UriTemplateString(path.Parts.Concat(template.Parts));
+            return new UriTemplateString(left.Parts.Concat(right.Parts));
+        }
+
+        /// <summary>
+        /// Concatenates two templates
+        /// </summary>
+        public static UriTemplateString operator +(string left, UriTemplateString right)
+        {
+            if (string.IsNullOrWhiteSpace(left))
+            {
+                return right;
+            }
+
+            return (UriTemplateString)left + right;
+        }
+
+        /// <summary>
+        /// Concatenates two templates
+        /// </summary>
+        public static UriTemplateString operator +(UriTemplateString left, string right)
+        {
+            if (string.IsNullOrWhiteSpace(right))
+            {
+                return left;
+            }
+
+            return left + (UriTemplateString)right;
         }
 
         /// <summary>

@@ -110,7 +110,7 @@ namespace UriTemplateString
                 return URITemplatePartFactory.GetParts(match.Groups["part"].Captures);
             }
 
-            throw new ArgumentException("Value is not a valid URI Template");
+            throw new ArgumentException($"Value '{value}' is not a valid URI Template");
         }
     }
 }

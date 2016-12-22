@@ -79,6 +79,12 @@ namespace UriTemplateString.Spec
                     return Operator.PathParameter;
                 case "&":
                     return Operator.QueryContinuation;
+                case "!":
+                case "=":
+                case ",":
+                case "@":
+                case "|":
+                    throw new NotImplementedException($"The operator character {operatorCharacter} is reserved for future extensions and not currently supported");
                 default:
                     throw new ArgumentOutOfRangeException(nameof(operatorCharacter));
             }

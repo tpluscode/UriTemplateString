@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InvalidUriTemplateFixture.cs" />
+    <Compile Include="OperatorFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UriTemplateStringArithmeticsFixture.cs" />
     <Compile Include="UriTemplateStringOperatorsFixture.cs" />

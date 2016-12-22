@@ -37,9 +37,11 @@ And do simple operations
 ``` c#
 // concatenate templates (and raw strings)
 template += "{&rest*}";
+// produces /base/users{/page:2}{?name}{&rest*}
 
 // append query
 template.AppendQueryParam("rest", explode: true);
+// produces /base/users{/page:2}{?name,rest*}
 ```
 
 ## Gotchas

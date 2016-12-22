@@ -9,8 +9,44 @@ Parses [URI Templates](https://tools.ietf.org/html/rfc6570) into a friendly obje
 Simply cast a string to `UriTemplateString`.
 
 ``` c#
-var template = (UriTemplateString)"/base/users{/page}{?name}";
+var template = (UriTemplateString)"/base/users{/page:2}{?name}";
 ```
+
+Now you can inspect the structure of the template
+
+
+``` c#
+template.Parts.Legnth == 3;
+
+// access literal parts
+var literal = template.Parts[0] as Literal;
+literal.ToString() == "/base/users";
+
+// access parts with modifier
+var pageSeg = template[1] as Expression;
+(pageSeg.Modifier as MaxLength).MaxLength == 2;
+
+// access variables and operator
+var query = template.Parts[2] as Expression;
+query.Operator.Equals(Operator.QueryComponent);
+query.Variables[0].Name == "name";
+```
+
+And do simple operations
+
+``` c#
+// concatenate templates (and raw strings)
+template += "{&rest*}";
+
+// append query
+template.AppendQueryParam("rest", explode: true);
+```
+
+## Gotchas
+
+Parsing is implemented uring regular expressions so performance can be suboptimal.
+
+Also, currently the expressions are an approximation of the real spec. Quirks possible ahead.
 
 [The stencil print icon](https://thenounproject.com/term/stencil-print/690990) by [Dairy Free Design](https://thenounproject.com/emmaihall/) from [The Noun Project](http://thenounproject.com/)
 

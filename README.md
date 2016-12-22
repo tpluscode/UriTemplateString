@@ -44,7 +44,7 @@ template.AppendQueryParam("rest", explode: true);
 
 ## Gotchas
 
-Parsing is implemented uring regular expressions so performance can be suboptimal.
+Parsing is implemented using regular expressions so performance can be suboptimal.
 
 Also, currently the expressions are an approximation of the real spec. Quirks possible ahead.
 

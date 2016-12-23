@@ -4,7 +4,15 @@
 
 Parses [URI Templates](https://tools.ietf.org/html/rfc6570) into a friendly object structure. 
 
-## Introduction
+## Installation
+
+Get from nuget.org
+
+```
+install-package UriTemplateString
+```
+
+## Usage
 
 Simply cast a string to `UriTemplateString`.
 

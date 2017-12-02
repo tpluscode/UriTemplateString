@@ -24,7 +24,7 @@ Now you can inspect the structure of the template
 
 
 ``` c#
-template.Parts.Legnth == 3;
+template.Parts.Length == 3;
 
 // access literal parts
 var literal = template.Parts[0] as Literal;

@@ -1,9 +1,12 @@
+image: Visual Studio 2017
+
 install:
   - choco install gitversion.portable -pre -y
+  - choco install gitlink
   
-before_build:  
-  - .paket\paket.bootstrapper.exe prerelease
+before_build:
   - .paket\paket.exe restore
+  - dotnet restore
   - ps: gitversion /l console /output buildserver
 
 build:
@@ -12,10 +15,12 @@ build:
 configuration: Release
 
 after_build:
-  - .paket\paket.exe pack output nugets include-referenced-projects version %GitVersion_NuGetVersion%
+  - gitlink src/UriTemplateString/bin/Release/netstandard2.0/UriTemplateString.pdb -u https://github.com/tpluscode/UriTemplateString
+  - gitlink src/UriTemplateString/bin/Release/net45/UriTemplateString.pdb -u https://github.com/tpluscode/UriTemplateString
+  - msbuild /t:Pack UriTemplateString.sln /p:Configuration=Release
   
 after_test:
-  - .\packages\OpenCover\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:"test\UriTemplateString.Tests\bin\Release\UriTemplateString.Tests.dll -noshadow -appveyor" -returntargetcode -filter:"+[UriTemplateString*]* -[UriTemplateString.Tests*]* -[Test*]*" -hideskipped:All -output:.\UriTemplateString_coverage.xml
+  - .\packages\OpenCover\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:"test\UriTemplateString.Tests\bin\Release\net45\UriTemplateString.Tests.dll -noshadow -appveyor" -returntargetcode -filter:"+[UriTemplateString*]* -[UriTemplateString.Tests*]* -[Test*]*" -hideskipped:All -output:.\UriTemplateString_coverage.xml
   - "SET PATH=C:\\Python34;C:\\Python34\\Scripts;%PATH%"
   - pip install codecov
   - codecov -f "UriTemplateString_coverage.xml"

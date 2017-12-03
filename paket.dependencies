@@ -1,5 +1,6 @@
 source https://www.nuget.org/api/v2/
-framework >= net40
+source https://www.myget.org/F/tpluscode/api/v3/index.json
+
 content: none
 redirects: on
 copy_local: true
@@ -7,10 +8,9 @@ copy_local: true
 nuget Fody
 nuget NullGuard.Fody
 nuget xunit
-nuget GitVersionTask
+nuget GitVersionTask prerelease
 nuget FluentAssertions
 nuget Stylecop.Analyzers
-nuget GitLink
 nuget OpenCover
-
-gist tpluscode/a285267d2543466fc35c3a168c846f9f 
+nuget tpluscode.library.ruleset
+nuget tpluscode.UnitTests.Ruleset

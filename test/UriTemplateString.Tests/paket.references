@@ -2,3 +2,4 @@ Xunit
 FluentAssertions
 Stylecop.Analyzers
 GitVersionTask
+tpluscode.UnitTests.Ruleset

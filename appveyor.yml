@@ -1,5 +1,6 @@
 install:
   - choco install gitversion.portable -pre -y
+  - choco install gitlink
   
 before_build:  
   - .paket\paket.bootstrapper.exe prerelease
@@ -12,6 +13,8 @@ build:
 configuration: Release
 
 after_build:
+  - gitlink src/UriTemplateString/bin/Release/netstandard2.0/UriTemplateString.pdb -u https://github.com/tpluscode/UriTemplateString
+  - gitlink src/UriTemplateString/bin/Release/net45/UriTemplateString.pdb -u https://github.com/tpluscode/UriTemplateString
   - .paket\paket.exe pack output nugets include-referenced-projects version %GitVersion_NuGetVersion%
   
 after_test:

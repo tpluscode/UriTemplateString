@@ -11,7 +11,6 @@ nuget xunit
 nuget GitVersionTask prerelease
 nuget FluentAssertions
 nuget Stylecop.Analyzers
-nuget GitLink < 3
 nuget OpenCover
 nuget tpluscode.library.ruleset
 nuget tpluscode.UnitTests.Ruleset

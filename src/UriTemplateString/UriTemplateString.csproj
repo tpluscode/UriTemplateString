@@ -2,13 +2,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <AssemblyName>UriTemplateString</AssemblyName>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\UriTemplateString.xml</DocumentationFile>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>True</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup>
     <Title>UriTemplateString</Title>
     <Description>Work programmatically with URI Templates</Description>
     <Copyright>Copyright © Tomasz Pluskiewicz 2016-2017</Copyright>
     <Authors>Tomasz Pluskiewicz</Authors>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\UriTemplateString.xml</DocumentationFile>
-    <DebugType>pdbonly</DebugType>
-    <DebugSymbols>True</DebugSymbols>
+    <PackageProjectUrl>http://github.com/tpluscode/UriTemplateString</PackageProjectUrl>
+    <PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/tpluscode/UriTemplateString/master/assets/noun_690990.png</PackageIconUrl>
+    <PackageTags>uri templates;rfc6570</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <RunCodeAnalysis>false</RunCodeAnalysis>

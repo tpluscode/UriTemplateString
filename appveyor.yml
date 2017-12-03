@@ -6,6 +6,7 @@ install:
   
 before_build:
   - .paket\paket.exe restore
+  - dotnet restore
   - ps: gitversion /l console /output buildserver
 
 build:

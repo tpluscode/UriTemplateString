@@ -17,7 +17,7 @@ configuration: Release
 after_build:
   - gitlink src/UriTemplateString/bin/Release/netstandard2.0/UriTemplateString.pdb -u https://github.com/tpluscode/UriTemplateString
   - gitlink src/UriTemplateString/bin/Release/net45/UriTemplateString.pdb -u https://github.com/tpluscode/UriTemplateString
-  - masbuild /t:Pack UriTemplateString.sln /p:Configuration=Release
+  - msbuild /t:Pack UriTemplateString.sln /p:Configuration=Release
   
 after_test:
   - .\packages\OpenCover\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:"test\UriTemplateString.Tests\bin\Release\UriTemplateString.Tests.dll -noshadow -appveyor" -returntargetcode -filter:"+[UriTemplateString*]* -[UriTemplateString.Tests*]* -[Test*]*" -hideskipped:All -output:.\UriTemplateString_coverage.xml

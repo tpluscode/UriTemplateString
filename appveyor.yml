@@ -26,7 +26,7 @@ after_test:
   - codecov -f "UriTemplateString_coverage.xml"
 
 artifacts:
-  - path: 'src\UriTemplateString\bin\*.nupkg'
+  - path: 'nugets\*.nupkg'
   - path: UriTemplateString_coverage.xml
 
 cache:

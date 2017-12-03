@@ -20,7 +20,7 @@ after_build:
   - msbuild /t:Pack UriTemplateString.sln /p:Configuration=Release
   
 after_test:
-  - .\packages\OpenCover\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:"test\UriTemplateString.Tests\bin\Release\UriTemplateString.Tests.dll -noshadow -appveyor" -returntargetcode -filter:"+[UriTemplateString*]* -[UriTemplateString.Tests*]* -[Test*]*" -hideskipped:All -output:.\UriTemplateString_coverage.xml
+  - .\packages\OpenCover\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:"test\UriTemplateString.Tests\bin\Release\net45\UriTemplateString.Tests.dll -noshadow -appveyor" -returntargetcode -filter:"+[UriTemplateString*]* -[UriTemplateString.Tests*]* -[Test*]*" -hideskipped:All -output:.\UriTemplateString_coverage.xml
   - "SET PATH=C:\\Python34;C:\\Python34\\Scripts;%PATH%"
   - pip install codecov
   - codecov -f "UriTemplateString_coverage.xml"

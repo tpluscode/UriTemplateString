@@ -25,7 +25,7 @@ namespace UriTemplateString.Spec
         /// <summary>
         /// The expression regex
         /// </summary>
-        internal static readonly Regex ExpressionRegex = new Regex($"{{(?<op>{OperatorRegex})(?>(?<varspec>{VariableSpecRegex}),?)+}}");
+        internal static readonly Regex ExpressionRegex = new Regex($"{{(?<op>{OperatorRegex})(?>(?<varspec>{VariableSpecRegex}),?)+}}", RegexOptions.IgnoreCase);
 
         /// <summary>
         /// The complete template regex

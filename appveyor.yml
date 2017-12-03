@@ -2,8 +2,7 @@ install:
   - choco install gitversion.portable -pre -y
   - choco install gitlink
   
-before_build:  
-  - .paket\paket.bootstrapper.exe prerelease
+before_build:
   - .paket\paket.exe restore
   - ps: gitversion /l console /output buildserver
 

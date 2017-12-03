@@ -21,6 +21,16 @@
   <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="bin\$(Configuration)\netstandard2.0\UriTemplateString.pdb">
+      <Pack>true</Pack>
+      <PackagePath>lib/netstandard2.0</PackagePath>
+    </Content>
+    <Content Include="bin\$(Configuration)\net45\UriTemplateString.pdb">
+      <Pack>true</Pack>
+      <PackagePath>lib/net45</PackagePath>
+    </Content>
+  </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
   <ItemGroup>
     <PackageReference Include="GitVersionTask" Version="4.0.0-beta0012">

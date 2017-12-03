@@ -36,11 +36,17 @@ namespace UriTemplateString.Tests
         }
 
         [Theory]
-        [InlineData("/{path}", "/{path,var}")]
-        [InlineData("/path/{p2}", "/path/{p2,var}")]
-        [InlineData("/path/p2", "/path/p2,var")]
-        public void Appending_variable_extends_last_variable_list(string template, string expected)
+        [InlineData("/path{/Var}")]
+        [InlineData("/path{Var}")]
+        [InlineData("/PATH/{Var}")]
+        [InlineData("/path{?Var}")]
+        public void Constructed_retains_all_parts_regardless_of_case(string template)
         {
+            // when
+            var templateString = (UriTemplateString)template;
+
+            // then
+            templateString.ToString().Should().Be(template);
         }
     }
 }

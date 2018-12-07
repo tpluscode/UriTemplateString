@@ -3,7 +3,7 @@ image: Visual Studio 2017
 before_build:
   - .paket\paket.exe restore
   - dotnet restore
-  - ps: gitversion /l console /output buildserver
+  - ps: gitversion /l console /output buildserver /updateassemblyinfo AssemblyInfo.cs /ensureassemblyinfo
 
 build_script:
   - ps: .\build.ps1 -Target CI -verbosity Verbose -configuration Release

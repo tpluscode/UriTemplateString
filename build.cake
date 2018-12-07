@@ -55,7 +55,7 @@ Task("Test")
     .Does(() => {
         StartProcess(
           @".\packages\tools\ReportGenerator\tools\net47\ReportGenerator.exe",
-          @"-reports:.\coverage\dotcover.xml -targetdir:.\coverage -reporttypes:Cobertura;html -assemblyfilters:-xunit*");
+          @"-reports:.\coverage\dotcover.xml -targetdir:.\coverage -reporttypes:Cobertura;html -assemblyfilters:-xunit*;-UriTemplateString.Tests;-Newtonsoft.Json;-FluentAssertions");
     });
 
 RunTarget(target);

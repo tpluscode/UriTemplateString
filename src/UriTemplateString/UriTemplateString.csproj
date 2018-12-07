@@ -5,7 +5,10 @@
     <AssemblyName>UriTemplateString</AssemblyName>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\UriTemplateString.xml</DocumentationFile>
     <DebugType>pdbonly</DebugType>
-    <DebugSymbols>True</DebugSymbols>
+    <DebugSymbols>true</DebugSymbols>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
   </PropertyGroup>
   <PropertyGroup>
     <Title>UriTemplateString</Title>
@@ -22,9 +25,9 @@
     <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="GitVersionTask" Version="4.0.0-beta0012">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <Compile Include="..\..\Assemblyinfo.cs" Link="Assemblyinfo.cs" Condition="Exists('..\..\Assemblyinfo.cs')" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="NullGuard.Fody" Version="1.8.5">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

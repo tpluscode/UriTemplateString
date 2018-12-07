@@ -7,7 +7,7 @@ before_build:
 
 build_script:
   - ps: .\build.ps1 -Target CI -verbosity Verbose -configuration Release
-  - msbuild /t:Pack UriTemplateString.sln /p:Configuration=Release
+  - dotnet pack --no-build --configuration Release /p:PackageVersion=$env:GitVersion_NuGetVersion
   
 test: off
 

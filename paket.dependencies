@@ -8,9 +8,26 @@ copy_local: true
 nuget Fody
 nuget NullGuard.Fody
 nuget xunit
-nuget GitVersionTask prerelease
+nuget GitVersionTask 4.0.0-beta0012
 nuget FluentAssertions
 nuget Stylecop.Analyzers
 nuget OpenCover
 nuget tpluscode.library.ruleset
 nuget tpluscode.UnitTests.Ruleset
+
+group tools
+    source https://nuget.org/api/v2
+    nuget Cake
+    nuget gitlink
+    nuget codecov
+    nuget JetBrains.dotCover.CommandLineTools
+    nuget ReportGenerator 4.0.4
+
+group addins
+    source https://nuget.org/api/v2
+    nuget cake.paket
+    nuget cake.codecov
+
+group modules
+    source https://nuget.org/api/v2
+    nuget Cake.Paket.Module

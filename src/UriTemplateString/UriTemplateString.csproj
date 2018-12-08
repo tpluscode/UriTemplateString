@@ -1,16 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <TargetFrameworks>netstandard1.5;net45</TargetFrameworks>
     <AssemblyName>UriTemplateString</AssemblyName>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\UriTemplateString.xml</DocumentationFile>
     <DebugType>pdbonly</DebugType>
-    <DebugSymbols>True</DebugSymbols>
+    <DebugSymbols>true</DebugSymbols>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
   </PropertyGroup>
   <PropertyGroup>
     <Title>UriTemplateString</Title>
     <Description>Work programmatically with URI Templates</Description>
-    <Copyright>Copyright © Tomasz Pluskiewicz 2016-2017</Copyright>
+    <Copyright>Copyright © Tomasz Pluskiewicz 2016-2018</Copyright>
     <Authors>Tomasz Pluskiewicz</Authors>
     <PackageProjectUrl>http://github.com/tpluscode/UriTemplateString</PackageProjectUrl>
     <PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
@@ -18,25 +21,14 @@
     <PackageTags>uri templates;rfc6570</PackageTags>
     <PackageOutputPath>../../nugets</PackageOutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard1.5'">
     <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="bin\$(Configuration)\netstandard2.0\UriTemplateString.pdb">
-      <Pack>true</Pack>
-      <PackagePath>lib/netstandard2.0</PackagePath>
-    </Content>
-    <Content Include="bin\$(Configuration)\net45\UriTemplateString.pdb">
-      <Pack>true</Pack>
-      <PackagePath>lib/net45</PackagePath>
-    </Content>
+    <Compile Include="..\..\Assemblyinfo.cs" Link="Assemblyinfo.cs" Condition="Exists('..\..\Assemblyinfo.cs')" />
   </ItemGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
   <ItemGroup>
-    <PackageReference Include="GitVersionTask" Version="4.0.0-beta0012">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="NullGuard.Fody" Version="1.6.3">
+    <PackageReference Include="NullGuard.Fody" Version="1.8.5">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
@@ -46,4 +38,5 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

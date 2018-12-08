@@ -108,6 +108,7 @@ _TeamCity*
 
 # DotCover is a Code Coverage Tool
 *.dotCover
+coverage
 
 # NCrunch
 _NCrunch_*
@@ -250,3 +251,4 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+/Assemblyinfo.cs
